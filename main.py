@@ -98,7 +98,7 @@ def baixar_audio():
             os.mkdir("Áudios")
             try:
                 yt = YouTube(URL)
-                stream = yt.streams.get_highest_resolution()
+                stream = yt.streams.filter(only_audio=True).first()
                 stream.download(output_path='Áudios')
                 janela_de_sucesso("Áudio salvo com sucesso!")
             except:
